@@ -2,7 +2,7 @@
 # All Rights Reserved. Licensed according to the terms of the Revised
 # BSD License. See LICENSE.txt for details.
 ---
-#its gr8 m8
+#its gr9 m9
 nebula::root_email: root@default.invalid
 nebula::puppetmaster: puppetmaster.default.invalid
 nebula::puppetdb: puppetdb.default.invalid
