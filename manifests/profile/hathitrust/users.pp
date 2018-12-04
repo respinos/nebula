@@ -8,7 +8,7 @@
 #
 # @example
 #   include nebula::profile::hathitrust::users
-class nebula::profile::hathitrust::users {
+class nebula::profile::hathitrust::users inherits nebula::profile::users {
   group { htprod:
     gid => lookup('nebula::users::local_groups')['htprod']['gid']
   }
@@ -23,8 +23,7 @@ class nebula::profile::hathitrust::users {
       home       => $values['home'],
       managehome => false,
       shell      => '/bin/bash',
-      groups     => 'htprod',
-      membership => 'minimum'
+      groups     +> ['htprod']
     }
   }
 
