@@ -15,7 +15,7 @@ class nebula::profile::hathitrust::users {
 
   lookup('nebula::users::local_groups')['htprod']['members'].each |$user| {
     $values = lookup('nebula::users::humans')[user]
-    user { hathitrust-$name:
+    user { "hathitrust-${name}":
       name       => $name,
       gid        => lookup('nebula::users::default_group'),
       home       => $values['home'],
