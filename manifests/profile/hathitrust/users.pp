@@ -19,7 +19,7 @@ class nebula::profile::hathitrust::users {
       name       => $user,
       comment    => $values['comment'],
       uid        => $values['uid'],
-      group      => lookup('nebula::users::default_group'),
+      gid        => lookup('nebula::users::default_group'),
       home       => $values['home'],
       managehome => false,
       shell      => '/bin/bash',
