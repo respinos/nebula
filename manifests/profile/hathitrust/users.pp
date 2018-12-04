@@ -10,11 +10,11 @@
 #   include nebula::profile::hathitrust::users
 class nebula::profile::hathitrust::users {
   group { htprod:
-    gid => lookup('nebula::users::local_groups::htprod::gid')
+    gid => lookup('nebula::users::local_groups')['htprod']['gid']
   }
 
-  lookup('nebula::users::local_groups::htprod::members').each |$user| {
-    $values = lookup("nebula::users::humans::${user}")
+  lookup('nebula::users::local_groups')['htprod']['members'].each |$user| {
+    $values = lookup('nebula::users::humans')[user]
     user { hathitrust-$name:
       name       => $name,
       gid        => lookup('nebula::users::default_group'),
