@@ -14,10 +14,12 @@ class nebula::profile::hathitrust::users {
   }
 
   lookup('nebula::users::local_groups')['htprod']['members'].each |$user| {
-    $values = lookup('nebula::users::humans')[user]
-    user { "hathitrust-${name}":
-      name       => $name,
-      gid        => lookup('nebula::users::default_group'),
+    $values = lookup('nebula::users::humans')[$user]
+    user { "hathitrust-${user}":
+      name       => $user,
+      comment    => $values['comment'],
+      uid        => $values['uid'],
+      group      => lookup('nebula::users::default_group'),
       home       => $values['home'],
       managehome => false,
       shell      => '/bin/bash',
