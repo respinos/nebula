@@ -15,8 +15,7 @@ class nebula::profile::hathitrust::users inherits nebula::profile::users {
 
   lookup('nebula::users::local_groups')['htprod']['members'].each |$user| {
     $values = lookup('nebula::users::humans')[$user]
-    user { "hathitrust-${user}":
-      name       => $user,
+    User[$user] {
       comment    => $values['comment'],
       uid        => $values['uid'],
       gid        => lookup('nebula::users::default_group'),
