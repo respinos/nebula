@@ -131,4 +131,5 @@ nebula::profile::authorized_keys::ssh_keys: {}
 nebula::usergroup::membership: {sudo: []}
 nebula::profile::groups::all_groups: {}
 nebula::virtual::users::default_group: staff
-nebula::virtual::users::all_users: {}
+nebula::virtual::users::all_users:
+  fake_canary_user: {}
