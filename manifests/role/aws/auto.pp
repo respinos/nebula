@@ -16,6 +16,11 @@ class nebula::role::aws::auto {
 
   if $facts['ec2_metadata'] {
     notify{'found ec2_metadata':}
+    if $::ec2_tag_role {
+      notify{"the role says: ${::ec2_tag_role}":}
+    } else {
+      notify{"the role says: NOTHING":}
+    }
   } else {
     fail('ec2_metadata fact required for this role')
   }
